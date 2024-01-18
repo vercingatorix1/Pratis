@@ -8,6 +8,6 @@ Every project stakeholder wants to know "What is the team working on?". Despite 
 Questions like: 
 "In the next sprint, what is the team spending the most time on?"
 "What is the team working on today?"
-"What's the most valuable item the team is producing?"
+"What type of requests is the team receiving?"
 
 The only way to answer "what is the team working on?" is to convey data, often a lot of data. An inconvenient amount of data to write or talk through in a meeting, that's why it needs to be visualized. 
