@@ -1,0 +1,36 @@
+#teamSquare {
+  width: 1040px;
+  height: 1000px;
+  display: flex;
+}
+
+.teamMember {
+  flex-grow: 1;
+  background-color: lightgray;
+  border: 1px solid gray;
+  position: relative;
+}
+
+.userStory {
+  position: absolute;
+  bottom: 0;
+  background-color: blue;
+  opacity: 0.7;
+  border: 1px solid black;
+  z-index: 1;
+}
+
+.userStoryName {
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+.featurePriority,
+.backlogPriority {
+  color: white; /* Default color for feature and backlog numbers */
+  text-align: center;
+  font-weight: bold;
+  padding: 2px;
+}
+

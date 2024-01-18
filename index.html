@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Resource Management Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <button id="addStoryButton">Add User Story</button>
+  <button id="addFeatureButton">New Feature</button>
+  <div id="teamSquare">
+    <div class="teamMember jokic" style="width: 300px" data-points="30"></div>
+    <div class="teamMember giannis" style="width: 150px" data-points="15"></div>
+    <div class="teamMember lebron" style="width: 200px" data-points="20"></div>
+    <div class="teamMember ausar" style="width: 100px" data-points="10"></div>
+    <div class="teamMember tyresse" style="width: 250px" data-points="25"></div>
+    <div id="datesContainer"></div>
+  </div>
+
+  <div id="storyForm" style="display: none;">
+    <h2>Add User Story</h2>
+    <form id="addStoryForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required><br><br>
+      <label for="assignee">Assignee:</label>
+      <select id="assignee" required>
+        <option value="">Select Assignee</option>
+        <option value="jokic">Jokic</option>
+        <option value="giannis">Giannis</option>
+        <option value="lebron">Lebron</option>
+        <option value="ausar">Ausar</option>
+        <option value="tyresse">Tyresse</option>
+      </select><br><br>
+      <label for="points">Points:</label>
+      <input type="number" id="points" min="1" required><br><br>
+      <label for="featureName">Feature Name:</label>
+      <select id="featureName">
+        <option value="">Select Feature Name</option>
+        <!-- Use JavaScript to generate the dropdown options -->
+      </select><br><br>
+      <label for="featurePriority">Feature Priority:</label>
+      <input type="number" id="featurePriority" value=""><br><br>
+      <label for="backlogPriority">Backlog Priority:</label>
+      <input type="number" id="backlogPriority" value="" required><br><br>
+      <label for="dependsOn">Depends On:</label>
+      <select id="dependsOn">
+        <option value="none">None</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+
+  <div id="featureForm" style="display: none;">
+    <h2>Add New Feature</h2>
+    <form id="addFeatureForm">
+      <label for="newFeatureName">Feature Name:</label>
+      <input type="string" id="newFeatureName" value="" required><br><br>
+      <label for="featurebacklogPriority">Backlog Priority:</label>
+      <input type="number" id="featurebacklogPriority" value="" required><br><br>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
