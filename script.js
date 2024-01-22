@@ -61,6 +61,8 @@ let teamMemberUserStoryHeight = {
   tyresse: 0
 };
 
+
+
 let featureUserStoryCount = {};
 let backlogUserStoryCount = 1;
 
@@ -96,7 +98,7 @@ function handleAddUserStoryFormSubmission(event) {
   let featureName = document.getElementById('featureName').value;
   let dependsOn = document.getElementById('dependsOn').value;
   let backlogPriority = parseInt(document.getElementById('backlogPriority').value) || backlogUserStoryCount;
-  let dependsOnLabel = (dependsOn !== 'none') ? dependsOn : 'None';
+  let dependsOnLabel = (dependsOn !== 'None') ? dependsOn : 'None';
 
   if (name && assignee && points) {
     let teamMember = document.querySelector('.teamMember.' + assignee);
@@ -105,7 +107,7 @@ function handleAddUserStoryFormSubmission(event) {
 
     // Find the minimum bottom value among the dependencies
     let dependsOnUserStory = null;
-    if (dependsOn !== 'none') {
+    if (dependsOn !== 'None') {
       dependsOnUserStory = userStories.find(function(story) {
         return story.name === dependsOn;
       });
@@ -119,20 +121,14 @@ function handleAddUserStoryFormSubmission(event) {
         let userStoryName = userStoryNames[i];
         if (userStoryName.textContent.includes(dependsOnUserStory.name)) {
           let dependsOnUserStoryElement = userStoryName.parentNode;
-          let storyTop = parseInt(dependsOnUserStoryElement.style.bottom);
+          let storyBottom = parseInt(dependsOnUserStoryElement.style.bottom);
           let storyHeight = parseInt(dependsOnUserStoryElement.style.height);
 
-          if (storyTop + storyHeight > minY) {
-            minY = storyTop + storyHeight;
+          if (storyBottom + storyHeight > minY && storyBottom + storyHeight > teamMemberHeight) {
+            minY = storyBottom + storyHeight;
+          } else {
+            minY = Math.max(minY, teamMemberHeight);
             
-            if (minY < teamMemberHeight) {
-              minY = teamMemberHeight;
-
-              console.log(minY)
-              console.log(storyTop)
-              console.log(storyHeight)
-              console.log(teamMemberHeight)
-            }
           }
           break;
         }
@@ -147,7 +143,7 @@ function handleAddUserStoryFormSubmission(event) {
 
     let featurePriority = 0;
 
-    if (featureName === 'none') {
+    if (featureName === 'None') {
       featurePriority = 0;
     } else {
       let selectedFeature = featureNames.find(function(feature) {
@@ -167,10 +163,21 @@ function handleAddUserStoryFormSubmission(event) {
     <div class="backlogPriority">Backlog Priority: ${backlogPriority}</div>
     <div class="dependsOnLabel">Depends On: ${dependsOnLabel}</div>
     `;
+    console.log('minY:', minY + (points * 1000) / capacity);
+    console.log('teamMemberUserStoryHeight[assignee]:', teamMemberUserStoryHeight[assignee]);
+    console.log(dependsOn == 'none')
+    if (dependsOn == 'none') {
+      teamMemberUserStoryHeight[assignee] += (points * 1000) / capacity;
+    } else {
+      teamMemberUserStoryHeight[assignee] += (points * 1000) / capacity;
+    }
+    
 
-    teamMemberUserStoryHeight[assignee] = minY + (points * 1000) / capacity;
+    console.log('minY:', minY + (points * 1000) / capacity);
+    console.log('teamMemberUserStoryHeight[assignee]:', teamMemberUserStoryHeight[assignee]);
 
     teamMember.appendChild(userStory);
+  
     document.getElementById('addStoryForm').reset();
 
     userStories.push({
