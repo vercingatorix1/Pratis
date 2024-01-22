@@ -20,14 +20,16 @@
   z-index: 1;
 }
 
-.userStoryName {
+.userStoryName,
+.featureName {
   color: white;
   text-align: center;
   padding: 5px;
 }
 
 .featurePriority,
-.backlogPriority {
+.backlogPriority,
+.dependsOnLabel {
   color: white; /* Default color for feature and backlog numbers */
   text-align: center;
   font-weight: bold;
