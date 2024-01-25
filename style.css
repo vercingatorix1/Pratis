@@ -36,3 +36,8 @@
   padding: 2px;
 }
 
+.date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
