@@ -136,7 +136,9 @@ function handleAddUserStoryFormSubmission(event) {
     }
 
     let userStory = document.createElement('div');
-    userStory.className = 'userStory';
+    // Add the CSS class based on the assigned feature
+    userStory.classList.add('userStory');
+    userStory.classList.add(featureName.toLowerCase().replace(' ', '-').replace(/[^\w-]+/g, ''));
     userStory.style.width = (capacity * 10) + 'px';
     userStory.style.height = (points * 1000) / capacity + 'px';
     userStory.style.bottom = minY + 'px';
@@ -199,67 +201,9 @@ function handleAddUserStoryFormSubmission(event) {
   }
 }
 
-/*
-function getNextWorkingDay(date) {
-  const dayOfWeek = date.getDay();
-
-  if (dayOfWeek === 0) {
-    return "Sunday";
-  } else if (dayOfWeek === 6) {
-    return "Saturday";
-  }
-
-  return date;
-}
-
-function countWeekendDays() {
-  const today = new Date();
-  let count = 0;
-
-  for (let i = 0; i < 10; i++) {
-    const nextWorkingDay = getNextWorkingDay(new Date(today.getTime() + i * 24 * 60 * 60 * 1000));
-    
-    if (nextWorkingDay === "Saturday" || nextWorkingDay === "Sunday") {
-      count++;
-    }
-  }
-
-  return count;
-}
-
-const weekendDayCount = countWeekendDays();
-console.log("Number of weekend days in the next 10 working days:", weekendDayCount);
-
-
-function addDates() {
-  const datesContainer = document.getElementById('datesContainer');
-  const today = new Date();
-  const count = countWeekendDays(); // Calculate the weekend day count
-
-
-  for (let i = 10 + count; i >= 0; i--) {
-    const nextWorkingDay = getNextWorkingDay(new Date(today.getTime() + i * 24 * 60 * 60 * 1000));
-    
-    if (nextWorkingDay !== "Sunday" && nextWorkingDay !== "Saturday") {
-      const dateElement = document.createElement('div');
-      dateElement.className = 'date';
-      dateElement.style.height = `100px`;
-      
-      const dateText = nextWorkingDay.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-      dateElement.innerText = dateText;
-      datesContainer.appendChild(dateElement);
-    }
-  }
-}
-
-
-
-*/
-
 document.addEventListener('DOMContentLoaded', function() {
   generateFeatureNameOptions();
   generateDependsOnOptions();
-   //function from 
 });
 
 document.getElementById('addStoryButton').addEventListener('click', showAddUserStoryForm);

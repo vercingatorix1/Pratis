@@ -14,7 +14,7 @@
 .userStory {
   position: absolute;
   bottom: 0;
-  background-color: blue;
+  background-color: rgb(0, 108, 209);;
   opacity: 0.7;
   border: 1px solid black;
   z-index: 1;
@@ -22,18 +22,36 @@
 
 .userStoryName,
 .featureName {
-  color: white;
+  color: black;
   text-align: center;
   padding: 5px;
+  
+}
+/* Define the CSS class for "Feature 1" */
+.feature-1 {
+  background-color: rgb(255, 194, 10);
+  /* Add any other styling properties as needed */
+}
+.feature-2 {
+  background-color: rgb(64, 176, 166);
+  /* Add any other styling properties as needed */
+}
+.feature-3 {
+  background-color: rgb(153, 79, 0);
+  /* Add any other styling properties as needed */
+}
+.feature-4 {
+  background-color: rgb(225, 190, 200);
+  /* Add any other styling properties as needed */
 }
 
 .featurePriority,
 .backlogPriority,
 .dependsOnLabel {
-  color: white; /* Default color for feature and backlog numbers */
+  color: black;
   text-align: center;
-  font-weight: bold;
-  padding: 2px;
+  padding: 5px;
+  
 }
 
 .date {
