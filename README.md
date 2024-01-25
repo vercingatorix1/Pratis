@@ -16,9 +16,9 @@ The only way to answer "what is the team working on?" is to convey data, often a
 Future Improvements/bug fixes:
 
 1. Fix Dates - Completed
-2. Label Columns
-3. Currently user stories are only added to top of columns. They need to be added to first open space they have room. I think this will require looping through Divs to calculate open space.
-4. Color user stories by feature.
+2. Label Columns - Completed
+3. Color user stories by feature. - Completed with caveat that feature names are hardcoded CSS classes Feature 1-4. 
+4. Currently user stories are only added to top of columns. They need to be added to first open space they have room. I think this will require looping through Divs to calculate open space.
 5. toggle a visual indication of user story dependencies, like excel's formula validation option.
 6. Make a new "sprint window" when user stories height exceeds top.
 
