@@ -199,7 +199,7 @@ function handleAddUserStoryFormSubmission(event) {
   }
 }
 
-
+/*
 function getNextWorkingDay(date) {
   const dayOfWeek = date.getDay();
 
@@ -254,12 +254,12 @@ function addDates() {
 
 
 
-
+*/
 
 document.addEventListener('DOMContentLoaded', function() {
   generateFeatureNameOptions();
   generateDependsOnOptions();
-  addDates();
+   //function from 
 });
 
 document.getElementById('addStoryButton').addEventListener('click', showAddUserStoryForm);
