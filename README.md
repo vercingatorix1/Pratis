@@ -15,7 +15,7 @@ The only way to answer "what is the team working on?" is to convey data, often a
 
 Future Improvements/bug fixes:
 
-1. Fix Dates
+1. Fix Dates - Completed
 2. Label Columns
 3. Currently user stories are only added to top of columns. They need to be added to first open space they have room. I think this will require looping through Divs to calculate open space.
 4. Color user stories by feature.
