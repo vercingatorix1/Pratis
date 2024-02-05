@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Organization {
+  id        String     @id @default(uuid())
+  name      String
+  employees Employee[]
+  projects  Project[]
+}
+
+model Employee {
+  id               String   @id @default(uuid())
+  email            String   @unique
+  firstName        String
+  lastName         String
+  registrationTime DateTime @default(now())
+  isProjectManager Boolean  @default(false)
+
+  organization Organization? @relation(fields: [orgId], references: [id])
+  orgId        String?
+
+  project    Project[]
+  activities Activity[]
+
+  @@index([orgId])
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  description String   @db.MediumText
+  startDate   DateTime
+  endDate     DateTime
+
+  projectManager   Employee @relation(fields: [projectManagerId], references: [id])
+  projectManagerId String
+
+  organization Organization @relation(fields: [orgId], references: [id])
+  orgId        String
+
+  features   Feature[]
+  activities Activity[]
+
+  @@index([projectManagerId])
+  @@index([orgId])
+}
+
+model Feature {
+  id              String   @id @default(uuid())
+  description     String   @db.MediumText
+  startDate       DateTime
+  endDate         DateTime
+  featurePriority Int      @unique
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id])
+
+  activities Activity[]
+
+  @@index([projectId])
+}
+
+model Activity {
+  id               String   @id @default(uuid())
+  description      String   @db.MediumText
+  startDate        DateTime
+  endDate          DateTime
+  activityPriority Int
+
+  featureId String?
+  feature   Feature? @relation(fields: [featureId], references: [id])
+
+  project   Project @relation(fields: [projectId], references: [id])
+  projectId String
+
+  employeeId String
+  employee   Employee @relation(fields: [employeeId], references: [id])
+
+  dependsOnId String?
+  dependsOn   Activity?  @relation("DependsOn", fields: [dependsOnId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  dependents  Activity[] @relation("DependsOn")
+
+  @@index([featureId])
+  @@index([employeeId])
+  @@index([dependsOnId])
+  @@index([projectId])
+}
