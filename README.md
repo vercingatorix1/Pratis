@@ -1,5 +1,5 @@
 # Pratis
-Project Visualizer and Resource Management
+Project Visualizer and Resource Management- See Excel file for backlog. 
 
 The purpose of this tool is to take the fundementals of Data visualization and apply them to project data. 
 
@@ -11,6 +11,7 @@ Questions like:
 "What type of requests is the team receiving?"
 
 The only way to answer "what is the team working on?" is to convey data, often a lot of data. An inconvenient amount of data to write or talk through in a meeting, that's why it needs to be visualized. 
+
 
 
 Future Improvements/bug fixes:
