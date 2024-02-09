@@ -27,7 +27,7 @@ Vertically, stacked on top of any higher priority user stories assigned to that 
 And how big is the story?
 Width is the width of the assignee column.
 Area is the number of points assigned to the user story
-Height is calculated on the other two characteristics of the rectangle Area/height
+Height is calculated on the other two dimensions of the rectangle, Height= Area/height
 
 Then we repeat that for every user story in the backlog with slight adjustments for dependencies between user stories. 
 
