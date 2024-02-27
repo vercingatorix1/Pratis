@@ -1,4 +1,4 @@
-# Pratis
+# Pratisandra
 Project Visualizer and Resource Management- See [Excel file](https://docs.google.com/spreadsheets/d/11TEWfOZyNgMLzpzHCXnEhNgLXW_EjZNpQxxE0afSQQM/edit?usp=sharing) for backlog. 
 
 The purpose of this tool is to take the fundementals of Data visualization and apply them to project data. 
